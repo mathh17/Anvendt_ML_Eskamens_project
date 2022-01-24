@@ -22,7 +22,7 @@ def load_image_function(path):
                           target_size = (56, 106), 
                           color_mode="grayscale") # standardize photo size + loads
         
-      CCDY_img = img_to_array(CCDY_img).flatten() # creates an array for imagery values
+      CCDY_img = img_to_array(CCDY_img)#.flatten() # creates an array for imagery values
 
       images.append(CCDY_img) # append the photo to the images. The images list contains a list of arrays
     
@@ -35,6 +35,9 @@ def load_image_function(path):
 def load_1d_grays ():
     # Start: creatign classes ons string_digits
     # load string digits
+
+    #os.chdir(path_string_digits)
+
     string_digits = pd.read_csv('DIDA_12000_String_Digit_Labels.csv', 
                  header = None, 
                  names=["index", "string"])
@@ -60,7 +63,10 @@ def load_1d_grays ():
     #
     # Start: create img_df containing scaled images as 1D tensors
     # Convert imagery to 1D arrays with tagged file names
+
+    #os.chdir(path_images)
     image_array, filename = load_image_function('DIDA_12000_String_Digit_Images/DIDA_1')
+
     # and convert to a img_df
     img_df = pd.DataFrame({'filename': filename, 'gray_value': list(image_array)}, 
                           columns=['filename', 'gray_value'])
