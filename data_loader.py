@@ -22,7 +22,7 @@ def load_image_function(path):
                           target_size = (56, 106), 
                           color_mode="grayscale") # standardize photo size + loads
         
-      CCDY_img = img_to_array(CCDY_img)#.flatten() # creates an array for imagery values
+      CCDY_img = img_to_array(CCDY_img).flatten() # creates an array for imagery values
 
       images.append(CCDY_img) # append the photo to the images. The images list contains a list of arrays
     
@@ -32,7 +32,7 @@ def load_image_function(path):
 ################
 # Func for creating df with classes and 1d img arrays
 
-def load_1d_grays ():
+def load_1d_grays (path_string_digits,path_images):
     # Start: creatign classes ons string_digits
     # load string digits
 <<<<<<< HEAD
